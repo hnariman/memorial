@@ -1,8 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 export default function AddMemory() {
+  const navigate = useNavigate();
   return (
     <section className="bg-gray-900 p-4 text-white">
       <div className="py-8 flex justify-center">
-        <button className="text-xl">
+        <button
+          className="text-xl"
+          onClick={() => navigate(-1)}
+        >
           &#10005;
         </button>
         <h1 className="text-xl flex-1 font-bold text-center">Add a new memory</h1>

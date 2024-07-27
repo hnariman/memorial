@@ -5,9 +5,9 @@ import PasswordIcon from "./icons/PasswordIcon";
 
 export default function Registration() {
   return (
-    <section className="text-center p-4 bg-gray-900">
+    <section className="text-center p-4 bg-gray-900 h-screen">
       <img
-        className="h-[220px] w-full object-cover rounded-xl"
+        className="h-[120px] w-full object-cover rounded-xl"
         src="https://cdn.usegalileo.ai/sdxl10/38d92afb-14e5-46dd-97b0-69b3538a833c.png"
         alt="family drawn" />
 
@@ -19,7 +19,7 @@ export default function Registration() {
         We're here to help you remember and celebrate your loved ones.
       </p>
 
-      <form action="" className="grid gap-4 my-4 w-7/12">
+      <form action="" className="grid gap-4 my-4 md:w-7/12">
         <label htmlFor="first"
           className="flex relative rounded-xl px-3 bg-gray-700 items-center justify-between">
           <input
@@ -83,14 +83,14 @@ export default function Registration() {
           px-4 
           m-auto
           my-4
-        w-8/12
+        w-full
           "
       >
         Next
       </button>
 
-      <a href="#" className="text-white font-bold text-sm">
-        Sign in instead
+      <a href="/signin" className="font-bold text-sm underline text-gray-500 ">
+        Sign-in instead
       </a>
 
     </section>
