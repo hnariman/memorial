@@ -10,7 +10,7 @@ import Profile from './profile.tsx'
 import AddMemory from './addMemory.tsx'
 import ErrorPage from './error.tsx'
 import Login2 from './login2.tsx'
-import Registration1 from './registration1.tsx'
+import VideoPage from './video.tsx'
 
 const links = [
   {
@@ -50,7 +50,7 @@ const links = [
   },
   {
     path: '/video',
-    element: '',
+    element: <VideoPage />,
     errorElement: <ErrorPage />
   }
 ];

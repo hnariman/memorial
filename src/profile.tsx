@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import HeartIcon from "./icons/HeartIcon";
 import { useNavigate } from "react-router-dom";
 
@@ -71,13 +71,12 @@ export default function Profile() {
 
   const [showAddFamily, setShowAddFamily] = React.useState(false);
   const navigate = useNavigate();
-  return (
+  const goBack = () => navigate(-1);
 
-    <section className="bg-gray-900 text-white px-4">
+  return (
+    <section className="bg-gray-900 text-white px-4 grid">
       <div className="flex">
-        <span
-          onClick={() => navigate(-1)}
-          className="text-2xl hover:opacity-70">
+        <span onClick={goBack} className="text-2xl hover:opacity-70">
           &larr;
         </span>
         <h1 className="flex-1 text-center font-bold text-xl">Profile</h1>
@@ -110,48 +109,7 @@ export default function Profile() {
           Add Family
         </div>
 
-        {showAddFamily && (
-          <form action="" className="absolute z-100 p-4 bg-gray-900 rounded-xl grid gap-2 border border-white" >
-            <div className="flex items-center">
-              <h3 className="flex-1">Please fill in the form</h3>
-              <button
-                onClick={(e) => { e.preventDefault(); setShowAddFamily(false) }}
-                className="text-2xl hover:opacity-70">&#10005;</button>
-            </div>
-            <label htmlFor="relation">
-              <input
-                className="bg-gray-800 p-2 px-3 rounded-xl outline-none"
-                type="text"
-                name="relation"
-                id="relation"
-                placeholder="Relation"
-              />
-            </label>
-            <label htmlFor="first">
-              <input
-                className="bg-gray-800 p-2 px-3 rounded-xl outline-none"
-                type="text"
-                name="first"
-                id="first"
-                placeholder="First Name"
-              />
-            </label>
-            <label htmlFor="last">
-              <input
-                className="bg-gray-800 p-2 px-3 rounded-xl outline-none"
-                type="text"
-                name="last"
-                id="last"
-                placeholder="Last Name"
-              />
-            </label>
-            <input
-              type="submit"
-              value="Submit"
-              className="p-2 px-3 text-white bg-blue-600 rounded-xl hover:opacity-70"
-            />
-          </form>
-        )}
+        {showAddFamily && <AddFamilyMemberForm {...{ setShowAddFamily }} />}
       </div>
 
       <h3 className="text-lg font-bold my-4">Family</h3>
@@ -180,3 +138,51 @@ export default function Profile() {
     </section>
   )
 }
+
+const AddFamilyMemberForm = ({
+  setShowAddFamily
+}: {
+  setShowAddFamily: Dispatch<SetStateAction<boolean>>
+}) => (
+  <form action="" className="absolute z-100 p-4 bg-gray-900 rounded-xl grid gap-2 border border-white" >
+    <div className="flex items-center">
+      <h3 className="flex-1">Please fill in the form</h3>
+      <button
+        onClick={(e) => { e.preventDefault(); setShowAddFamily(false) }}
+        className="text-2xl hover:opacity-70">&#10005;</button>
+    </div>
+    <label htmlFor="relation">
+      <input
+        className="bg-gray-800 p-2 px-3 rounded-xl outline-none"
+        type="text"
+        name="relation"
+        id="relation"
+        placeholder="Relation"
+      />
+    </label>
+    <label htmlFor="first">
+      <input
+        className="bg-gray-800 p-2 px-3 rounded-xl outline-none"
+        type="text"
+        name="first"
+        id="first"
+        placeholder="First Name"
+      />
+    </label>
+    <label htmlFor="last">
+      <input
+        className="bg-gray-800 p-2 px-3 rounded-xl outline-none"
+        type="text"
+        name="last"
+        id="last"
+        placeholder="Last Name"
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+      className="p-2 px-3 text-white bg-blue-600 rounded-xl hover:opacity-70"
+    />
+  </form>
+
+)
