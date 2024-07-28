@@ -7,10 +7,12 @@ import UserHomePage from './userHome.tsx'
 import Login from './login.tsx'
 import Registration from './registration.tsx'
 import Profile from './profile.tsx'
-import AddMemory from './addMemory.tsx'
+import Upload from './addMemory.tsx'
 import ErrorPage from './error.tsx'
 import Login2 from './login2.tsx'
-import VideoPage from './video.tsx'
+import MediaPage from './video.tsx'
+import Privacy from './privacy.tsx'
+import Support from './support.tsx'
 
 const links = [
   {
@@ -39,8 +41,8 @@ const links = [
     errorElement: <ErrorPage />
   },
   {
-    path: '/add-memory',
-    element: <AddMemory />,
+    path: '/upload',
+    element: <Upload />,
     errorElement: <ErrorPage />
   },
   {
@@ -49,8 +51,18 @@ const links = [
     errorElement: <ErrorPage />
   },
   {
-    path: '/video',
-    element: <VideoPage />,
+    path: '/media',
+    element: <MediaPage />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: '/privacy',
+    element: <Privacy />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: '/support',
+    element: <Support />,
     errorElement: <ErrorPage />
   }
 ];

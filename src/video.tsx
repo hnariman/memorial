@@ -29,13 +29,17 @@ const mock = {
     },
     {
       text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique nulla asperiores delectus nisi, totam quae. Minima, temporibus libero dignissimos sapiente dolorum aliquid illum ad necessitatibus molestias. Quaerat neque in delectus!",
-      author: "Megan Wong",
+      author: "Betty Wong",
+    },
+    {
+      text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique nulla asperiores delectus nisi, totam quae. Minima, temporibus libero dignissimos sapiente dolorum aliquid illum ad necessitatibus molestias. Quaerat neque in delectus!",
+      author: "John Wong",
     }
   ]
 }
 
 
-export default function VideoPage() {
+export default function MediaPage() {
   const navigate = useNavigate();
   const back = () => navigate(-1);
   return (
@@ -88,13 +92,17 @@ export default function VideoPage() {
           <HomeIcon />
           <span>Home</span>
         </li>
-        <li className="flex flex-col items-center">
-          <MediaIcon />
-          <span>Memories</span>
+        <li>
+          <a href="/user" className="flex flex-col items-center">
+            <MediaIcon />
+            <span>Memories</span>
+          </a>
         </li>
-        <li className="flex flex-col items-center">
-          <ProfileIcon />
-          <span>Profile</span>
+        <li >
+          <a href="/profile" className="flex flex-col items-center">
+            <ProfileIcon />
+            <span>Profile</span>
+          </a>
         </li>
       </ul>
     </section>

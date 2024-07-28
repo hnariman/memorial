@@ -29,7 +29,7 @@ const footerItems = [
   {
     icon: <MediaIcon />,
     text: "Upload",
-    href: "/add-memory"
+    href: "/upload"
   },
 ];
 
@@ -95,17 +95,21 @@ export default function UserHomePage() {
       <ul className="mt-4 grid grid-flow-col grid-cols-3 grid-rows-2 p-2 items-start h-fit gap-2 ">
 
         {showPhotos && mock.photos.map(({ href }) => (
-          <img
-            src={href}
-            width={100}
-            className="rounded-xl bg-gray-500 h-[100px] object-cover" />
+          <a href="/media">
+            <img
+              src={href}
+              width={100}
+              className="rounded-xl bg-gray-500 h-[100px] object-cover" />
+          </a>
         ))}
 
         {showVideos && mock.videos.map(({ href }) => (
-          <img
-            src={href}
-            width={100}
-            className="rounded-xl bg-gray-500 h-[100px] object-cover" />
+          <a href="/media">
+            <img
+              src={href}
+              width={100}
+              className="rounded-xl bg-gray-500 h-[100px] object-cover" />
+          </a>
         ))}
 
       </ul>

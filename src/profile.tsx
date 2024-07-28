@@ -44,6 +44,15 @@ export default function Profile() {
         imageUrl: "https://images.unsplash.com/photo-1576089073624-b5751a8f4de9?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         type: "photo",
       },
+
+      {
+        imageUrl: "https://images.unsplash.com/photo-1570784654060-0f1c45ef51c0?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        type: "photo",
+      },
+      {
+        imageUrl: "https://images.unsplash.com/photo-1560066432-efb83eb5f272?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        type: "photo",
+      },
       {
         imageUrl: "https://images.unsplash.com/photo-1560066432-efb83eb5f272?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         type: "photo",
@@ -51,7 +60,19 @@ export default function Profile() {
       {
         imageUrl: "https://images.unsplash.com/photo-1570784654060-0f1c45ef51c0?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         type: "photo",
-      }
+      },
+      {
+        imageUrl: "https://images.unsplash.com/photo-1576089073624-b5751a8f4de9?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        type: "photo",
+      },
+      {
+        imageUrl: "https://images.unsplash.com/photo-1576089073624-b5751a8f4de9?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        type: "photo",
+      },
+      {
+        imageUrl: "https://images.unsplash.com/photo-1560066432-efb83eb5f272?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        type: "photo",
+      },
     ],
     videos: [
       {
@@ -74,7 +95,7 @@ export default function Profile() {
   const goBack = () => navigate(-1);
 
   return (
-    <section className="bg-gray-900 text-white px-4 grid">
+    <section className="bg-gray-900 text-white px-4 grid min-h-screen pb-6">
       <div className="flex">
         <span onClick={goBack} className="text-2xl hover:opacity-70">
           &larr;
@@ -126,14 +147,33 @@ export default function Profile() {
           ))}
         </li>
       </ul>
+      <a href="/user">
+        <h3 className="my-6 text-xl font-bold">
+          Photos and Videos
+        </h3>
 
-      <h3 className="my-6 text-xl font-bold">Photos and Videos</h3>
-
-      <div className="grid gap-2 w-full h-[500px] grid-cols-4 grid-rows-3">
-        {mock?.photos?.map((photo) => (
-          <img src={photo.imageUrl} className="bg-gray-300 rounded" />
-        ))}
-      </div>
+        <div className="grid gap-1 grid-cols-[1fr,1fr,1fr] md:grid-cols-[1fr,1fr,1fr,1fr] my-2">
+          {mock?.photos?.map((photo) => (
+            <img src={photo.imageUrl}
+              className="bg-gray-300 h-[100px] w-[100px] rounded object-cover"
+            />
+          ))}
+        </div>
+      </a>
+      <a
+        href="/privacy"
+        className="flex justify-between my-4"
+      >
+        <span>Privacy</span>
+        <span>&rarr;</span>
+      </a>
+      <a
+        href="/support"
+        className="flex justify-between"
+      >
+        <span>Help & Support </span>
+        <span>&rarr;</span>
+      </a>
 
     </section>
   )

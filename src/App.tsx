@@ -5,8 +5,8 @@ const links = [
   { href: '/signin', label: 'Sign In' },
   { href: '/login', label: 'login' },
   { href: '/user', label: 'user' },
-  { href: '/add-memory', label: 'add-memory' },
-  { href: '/video', label: 'video page' },
+  { href: '/upload', label: 'upload' },
+  { href: '/media', label: 'media' },
 ]
 
 export default function App() {

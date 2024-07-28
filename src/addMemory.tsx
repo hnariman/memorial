@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function AddMemory() {
+export default function Upload() {
   const navigate = useNavigate();
   return (
     <section className="bg-gray-900 p-4 text-white">
@@ -37,7 +37,12 @@ export default function AddMemory() {
         />
 
         <p className="text-gray-500">
-          By uploading, you confirm that you have the right to share this content with us and to use it for all purposes. You also agree to our Terms of Service.
+          By uploading, you confirm that you have the right to share this content with us and to use it for all purposes. You also agree to our
+          <a href="/privacy" className="italic underline">
+            <span>
+              Terms of Service.
+            </span>
+          </a>
         </p>
 
 
