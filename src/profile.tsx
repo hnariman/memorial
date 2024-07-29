@@ -1,6 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
 import HeartIcon from "./icons/HeartIcon";
-import { useNavigate } from "react-router-dom";
 
 type TFamily = {
   relation: string;
@@ -91,89 +90,144 @@ export default function Profile() {
   };
 
   const [showAddFamily, setShowAddFamily] = React.useState(false);
-  const navigate = useNavigate();
-  const goBack = () => navigate(-1);
+  const [showAddTribute, setShowAddTribute] = React.useState(false);
 
   return (
-    <section className="bg-gray-900 text-white px-4 grid min-h-screen pb-6">
-      <div className="flex">
-        <span onClick={goBack} className="text-2xl hover:opacity-70">
-          &larr;
-        </span>
-        <h1 className="flex-1 text-center font-bold text-xl">Profile</h1>
-      </div>
+    <section className="bg-gray-900 text-white grid min-h-screen">
+      <section className="p-2">
+        <img
+          className="rounded-full object-cover h-[176px] w-[176px] mx-auto"
+          src={mock.imageUrl}
+          height={176}
+          width={176}
+        />
 
-      <img
-        className="rounded-full object-cover h-[176px] w-[176px]"
-        src={mock.imageUrl}
-        height={176}
-        width={176}
-      />
+        <h2 className="font-semibold text-lg text-center">
+          {mock.first} {mock.last}
+        </h2>
 
-      <h2 className="font-semibold text-lg">{mock.first} {mock.last}</h2>
-
-      <h3 className="text-gray-400">
-        Age {mock.age}, passed away on {mock.passed}
-      </h3>
-
-      <p className="text-gray-400">View Profile</p>
-
-      <div className="flex gap-4 my-6">
-
-        <button className="bg-gray-700 capitalize rounded-xl p-2 px-4 font-bold">
-          edit profile
-        </button>
-
-        <div
-          onClick={() => setShowAddFamily(!showAddFamily)}
-          className=" bg-blue-500 capitalize rounded-xl p-2 px-4 font-bold ">
-          Add Family
-        </div>
-
-        {showAddFamily && <AddFamilyMemberForm {...{ setShowAddFamily }} />}
-      </div>
-
-      <h3 className="text-lg font-bold my-4">Family</h3>
-      <ul>
-        <li className="flex items-center gap-4">
-          <div className="p-3 bg-gray-700 w-10 h-10 rounded-lg" >
-            {/* TODO: icons change based on relation */}
-            <HeartIcon fill="#fff" />
-          </div>
-          {mock?.family?.map((member) => (
-            <p className="font-semibold">
-              {member.relation} of {member.first} {member.last}
-            </p>
-          ))}
-        </li>
-      </ul>
-      <a href="/user">
-        <h3 className="my-6 text-xl font-bold">
-          Photos and Videos
+        <h3 className="text-gray-400">
+          Age {mock.age}, passed away on {mock.passed}
         </h3>
+        <p className="text-xs text-gray-300 mt-4">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat id sapiente alias ipsum nesciunt nam. Reprehenderit sint sit consequatur voluptatibus perferendis suscipit, odio in dolorem impedit accusamus, nam, at a?
+        </p>
+      </section>
 
-        <div className="grid gap-1 grid-cols-[1fr,1fr,1fr] md:grid-cols-[1fr,1fr,1fr,1fr] my-2">
-          {mock?.photos?.map((photo) => (
-            <img src={photo.imageUrl}
-              className="bg-gray-300 h-[100px] w-[100px] rounded object-cover"
-            />
-          ))}
+
+
+      {/* Family section */}
+      <section className="px-2">
+        <h2 className="text-lg font-bold my-4">
+          Family
+        </h2>
+        <ul>
+          <li className="flex items-center gap-4">
+            <div className="p-3 bg-gray-700 w-10 h-10 rounded-lg" >
+              {/* TODO: icons change based on relation */}
+              <HeartIcon fill="#fff" />
+            </div>
+            {mock?.family?.map((member) => (
+              <p className="font-semibold">
+                {member.relation} of {member.first} {member.last}
+              </p>
+            ))}
+          </li>
+        </ul>
+      </section>
+
+      {/* Media Section  */}
+      <section className="p-2">
+        <a href="/user">
+          <h3 className="my-6 text-xl font-bold">
+            Photos and Videos
+          </h3>
+
+          <div className="grid gap-1 grid-cols-[1fr,1fr,1fr] md:grid-cols-[1fr,1fr,1fr,1fr] my-2">
+            {mock?.photos?.map((photo) => (
+              <img src={photo.imageUrl}
+                className="bg-gray-300 h-[100px] w-[100px] rounded object-cover"
+              />
+            ))}
+          </div>
+        </a>
+      </section>
+
+      <section className="p-2 text-xs text-gray-400 grid gap-2">
+        <h2 className="font-bold text-xl text-white">
+          Tribute
+        </h2>
+
+        <div className="boder-b">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, sint molestias.
+          </p>
+          <p className="text-white italic">James</p>
         </div>
-      </a>
-      <a
-        href="/privacy"
-        className="flex justify-between my-4"
-      >
-        <span>Privacy</span>
-        <span>&rarr;</span>
-      </a>
-      <a
-        href="/support"
-        className="flex justify-between"
-      >
-        <span>Help & Support </span>
-        <span>&rarr;</span>
-      </a>
+
+        <div className="boder-b">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, neque!
+          </p>
+          <p className="text-white italic">James</p>
+        </div>
+
+        <div className="boder-b">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, neque!
+          </p>
+          <p className="text-white italic">James</p>
+        </div>
+
+
+        {showAddTribute && (
+          <form action=""
+            className="p-2 bg-gray-900 rounded grid gap-2 border z-100w-full bottom-0"
+          >
+            <span
+              className="text-xl text-white text-right"
+              onClick={() => setShowAddTribute(false)}>X</span>
+            <textarea
+              name="tribute"
+              id="tribute"
+              placeholder="please enter text"
+              className="bg-gray-800 p-2 px-3 rounded outline-none w-full h-32"
+            />
+
+            <input
+              type="text"
+              name="author"
+              id="author"
+              placeholder="author"
+              className="bg-gray-800 p-2 px-3 rounded outline-none w-full"
+            />
+            <input
+              type="submit"
+              value="submit"
+              className="bg-blue-500 text-white p-2 px-3 rounded hover:opacity-70 w-full"
+            />
+          </form>
+        )}
+        <button
+          onClick={() => setShowAddTribute(true)}
+          className="p-2 px-3 bg-blue-500 rounded-xl text-white ">
+          add tribute
+        </button>
+      </section>
+
+      {showAddFamily && <AddFamilyMemberForm {...{ setShowAddFamily }} />}
+      <footer className="w-full bottom-0 bg-gray-700 flex justify-around text-xs">
+        <a href="/support"> Support</a>
+        <a href="/privacy"> Privacy</a>
+        <span
+          onClick={() => setShowAddFamily(true)}
+          className="capitalize">
+          add family member
+        </span>
+        <a href="/admin" className="capitalize">
+          edit
+        </a>
+      </footer>
 
     </section>
   )
@@ -184,7 +238,7 @@ const AddFamilyMemberForm = ({
 }: {
   setShowAddFamily: Dispatch<SetStateAction<boolean>>
 }) => (
-  <form action="" className="absolute z-100 p-4 bg-gray-900 rounded-xl grid gap-2 border border-white" >
+  <form action="" className="absolute z-100 bottom-0 p-4 bg-gray-900 rounded-xl grid gap-2 border border-white w-full" >
     <div className="flex items-center">
       <h3 className="flex-1">Please fill in the form</h3>
       <button

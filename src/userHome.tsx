@@ -7,25 +7,11 @@ import React from "react";
 
 const footerItems = [
   {
-    icon: <HomeIcon />,
-    text: "Home",
-    href: "#",
-  },
-  {
-    icon: <SearchIcon />,
-    text: "Search",
-    href: "#",
-  },
-  {
     icon: <ProfileIcon />,
     text: "Profile",
     href: "/profile",
   },
-  {
-    icon: <NotificationsIcon />,
-    text: "Notifications",
-    href: "#",
-  },
+
   {
     icon: <MediaIcon />,
     text: "Upload",
